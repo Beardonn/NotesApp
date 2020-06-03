@@ -3,6 +3,7 @@ import "./scss/App.scss";
 import DisplayNotes from "./DisplayNotes";
 import Note from "./Note";
 import Input from "./Input";
+import store from "./service/store";
 import { Container, Row, Col } from "react-bootstrap";
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
     this.handleIsEdited = this.handleIsEdited.bind(this);
     this.handleEditingIndex = this.handleEditingIndex.bind(this);
     this.handleDeleteNote = this.handleDeleteNote.bind(this);
+    console.log(store.getState());
   }
   handleAddNote() {
     if (this.state.text) {
