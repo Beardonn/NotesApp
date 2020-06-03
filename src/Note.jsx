@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import store from "./service/store";
 
 class Note extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class Note extends Component {
   handleEditingIndex() {
     this.props.onHandleIsEdited(this.props.noteIndex);
     this.props.onHandleEditingIndex(this.props.noteIndex);
-    this.props.onHandleAddText(this.props.noteText);
+    // this.props.onHandleAddText(this.props.noteText);
   }
   handleDeleteNote() {
     this.props.onHandleDeleteNote(this.props.noteIndex);
