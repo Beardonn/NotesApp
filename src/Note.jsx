@@ -21,19 +21,17 @@ class Note extends Component {
   }
   render() {
     return (
-      <Container fluid>
-        <Row>
-          <Col>
-            <p>{this.props.noteText}</p>
-          </Col>
-          <Col sm={2}>
-            <Button onClick={this.handleEditingIndex}>Edit</Button>
-          </Col>
-          <Col sm={2}>
-            <Button onClick={this.handleDeleteNote}>Delete</Button>
-          </Col>
-        </Row>
-      </Container>
+      <Row>
+        <Col>
+          <p>{this.props.noteText}</p>
+        </Col>
+        <Col sm={2}>
+          <Button onClick={this.handleEditingIndex}>Edit</Button>
+        </Col>
+        <Col sm={2}>
+          <Button onClick={this.handleDeleteNote}>Delete</Button>
+        </Col>
+      </Row>
     );
   }
 }

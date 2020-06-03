@@ -114,7 +114,7 @@ class App extends Component {
   }
   render() {
     return (
-      <Container id="mainComponent" fluid>
+      <Container id="main_component" fluid>
         <Input
           handleAddNote={this.handleAddNote}
           handleAddText={this.handleAddText}

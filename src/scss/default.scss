@@ -1,9 +1,14 @@
-#mainComponent {
+body {
+    width: 100%;
+    height: 98vh;
+}
+
+#main_component {
     background-color: #0398c5;
     padding: 0;
 }
 
-#inputComponent {
+#input_component {
     border: solid;
     .add-note-button {
         margin-left: 5px;

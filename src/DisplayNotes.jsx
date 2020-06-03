@@ -6,11 +6,9 @@ class DisplayNotes extends Component {
     return (
       <Container fluid>
         <Row>
-          <Col>
-            {this.props.notes.map((note) => {
-              return note;
-            })}
-          </Col>
+          {this.props.notes.map((note) => {
+            return <Col sm={4}>{note}</Col>;
+          })}
         </Row>
       </Container>
     );

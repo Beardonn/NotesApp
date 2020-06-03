@@ -21,7 +21,7 @@ class Input extends Component {
   }
   render() {
     return (
-      <Container id="inputComponent" fluid>
+      <Container id="input_component" fluid>
         <Row>
           <Col sm={10} className="input-col">
             <input
