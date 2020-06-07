@@ -20,10 +20,8 @@ function notes(state = [], action) {
         return note;
       });
     case DELETE_NOTE:
-      return state.map((note) => {
-        if (note.index !== action.index) {
-          return note;
-        }
+      return state.filter((note) => {
+        return note.index !== action.index;
       });
     default:
       return state;

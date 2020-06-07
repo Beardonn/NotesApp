@@ -2,14 +2,26 @@ import React, { Component } from "react";
 import "./scss/App.scss";
 import DisplayNotes from "./DisplayNotes";
 import Input from "./Input";
-import store from "./service/store";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { deleteNote, addNote, editNote } from "./service/actions";
+import { connect } from "react-redux";
 
+const mapStateToProps = (state) => {
+  return {
+    notes: state,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addNote: (text, index) => dispatch(addNote(text, index)),
+    editNote: (text, index) => dispatch(editNote(text, index)),
+    deleteNote: (index) => dispatch(deleteNote(index)),
+  };
+};
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      notes: [],
       index: 0,
       isEdited: false,
       editingIndex: "",
@@ -18,7 +30,6 @@ class App extends Component {
     this.handleEditingIndex = this.handleEditingIndex.bind(this);
     this.handleDeleteNote = this.handleDeleteNote.bind(this);
     this.handleUpdateIndex = this.handleUpdateIndex.bind(this);
-    console.log(store.getState());
   }
   handleUpdateIndex() {
     this.setState({
@@ -26,19 +37,7 @@ class App extends Component {
     });
   }
   handleDeleteNote(noteIndex) {
-    this.setState(
-      (prevState) => ({
-        notes: prevState.notes.map((note, index) => {
-          return noteIndex !== index ? note : undefined;
-        }),
-      }),
-      () => {
-        this.setState({
-          isEdited: false,
-          text: "",
-        });
-      }
-    );
+    this.props.deleteNote(noteIndex);
   }
   handleIsEdited(noteIndex) {
     if (noteIndex === this.state.editingIndex) {
@@ -49,6 +48,9 @@ class App extends Component {
     });
   }
   handleEditingIndex(index) {
+    if (this.state.editingIndex === index) {
+      return;
+    }
     this.setState({
       editingIndex: index,
     });
@@ -62,15 +64,18 @@ class App extends Component {
           index={this.state.index}
           isEdited={this.state.isEdited}
           editingIndex={this.state.editingIndex}
+          addNote={this.props.addNote}
+          editNote={this.props.editNote}
         />
         <DisplayNotes
-          notes={this.state.notes}
+          notes={this.props.notes}
           onHandleIsEdited={this.handleIsEdited}
           onHandleEditingIndex={this.handleEditingIndex}
+          deleteNote={this.props.deleteNote}
         />
       </Container>
     );
   }
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,16 +1,13 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import state from "./service/store";
 import Note from "./Note";
 
 class DisplayNotes extends Component {
   render() {
-    let notes = state.getState();
-    console.log("Jestem w display: " + notes);
     return (
       <Container fluid>
         <Row>
-          {notes.map((note) => {
+          {this.props.notes.map((note) => {
             return (
               <Col sm={4}>
                 <Note
@@ -18,6 +15,7 @@ class DisplayNotes extends Component {
                   noteIndex={note.index}
                   onHandleIsEdited={this.props.onHandleIsEdited}
                   onHandleEditingIndex={this.props.onHandleEditingIndex}
+                  deleteNote={this.props.deleteNote}
                 />
               </Col>
             );
