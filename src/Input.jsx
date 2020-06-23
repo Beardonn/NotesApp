@@ -35,7 +35,7 @@ class Input extends Component {
       <Container id="input_component" fluid>
         <Row>
           <Col sm={10} className="input-col">
-            <input
+            <textarea
               className="add-note-input"
               type="text"
               onChange={this.handleUpdateNoteMessage}

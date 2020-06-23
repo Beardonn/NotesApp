@@ -8,7 +8,30 @@ body {
     padding: 0;
 }
 
+#display_notes {
+    background-color: rgba(0, 255, 242, 0.726);
+    .note {
+        background-color: green;
+        margin: 5px 5px;
+        overflow-wrap: break-all;
+        word-break: break-all;
+        width: 100%;
+        // align-items: center;
+    }
+    .note-wrapper {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+    }
+    .button-col {
+        align-self: center;
+    }
+}
+
 #input_component {
+    textarea {
+        resize: none;
+    }
     border: solid;
     .add-note-button {
         margin-left: 5px;
@@ -17,6 +40,7 @@ body {
     .button-col {
         padding-left: 5px;
         padding-right: 0;
+        align-self: center;
     }
     .input-col {
         padding: 0;
@@ -25,4 +49,8 @@ body {
         width: 100%;
         height: 100%;
     }
+}
+
+.note-button {
+    margin: 2px 0px;
 }

@@ -20,15 +20,17 @@ class Note extends Component {
   }
   render() {
     return (
-      <Row>
+      <Row className="note">
         <Col>
           <p>{this.props.noteText}</p>
         </Col>
-        <Col sm={2}>
+        <Col sm={2} className="button-col">
           <Button onClick={this.handleEditingIndex}>Edit</Button>
         </Col>
-        <Col sm={2}>
-          <Button onClick={this.handleDeleteNote}>Delete</Button>
+        <Col sm={2} className="button-col">
+          <Button className="note-button" onClick={this.handleDeleteNote}>
+            Delete
+          </Button>
         </Col>
       </Row>
     );

@@ -5,12 +5,13 @@ import Note from "./Note";
 class DisplayNotes extends Component {
   render() {
     return (
-      <Container fluid>
+      <Container fluid id="display_notes">
         <Row>
           {this.props.notes.map((note) => {
             return (
-              <Col sm={4}>
+              <Col sm={4} className="note-wrapper">
                 <Note
+                  className="note"
                   noteText={note.text}
                   noteIndex={note.index}
                   onHandleIsEdited={this.props.onHandleIsEdited}
